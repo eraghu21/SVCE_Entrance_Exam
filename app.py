@@ -10,21 +10,21 @@ st.sidebar.title("Navigation")
 selection = st.sidebar.radio("Go to", ["Login", "Take Exam", "Results", "Admin", "Rank List"])
 
 if selection == "Login":
-    import pages.01_Login as page
+    import pages.Login as page
     page.app()
 
 if selection == "Take Exam":
-    import pages.02_Take_Exam as page
+    import pages.Take_Exam as page
     page.app()
 
 if selection == "Results":
-    import pages.03_Results as page
+    import pages.Results as page
     page.app()
 
 if selection == "Admin":
-    import pages.04_Admin as page
+    import pages.Admin as page
     page.app()
 
 if selection == "Rank List":
-    import pages.05_Ranklist as page
+    import pages.Ranklist as page
     page.app()
