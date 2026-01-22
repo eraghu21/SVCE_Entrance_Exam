@@ -18,7 +18,7 @@ def app():
     users_ws = spreadsheet.worksheet("Users")
 
     st.write("Users sheet loaded successfully")
-        users_ws = spreadsheet.worksheet("Users")
+        
 
         users = users_ws.get_all_records()
         user = next((u for u in users if u["Email"] == email), None)
