@@ -1,16 +1,17 @@
-import gspread
-import json
-from google.oauth2.service_account import Credentials
 import streamlit as st
+import gspread
+from google.oauth2.service_account import Credentials
 
-SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+def open_sheet(sheet_name):
+    scope = [
+        "https://spreadsheets.google.com/feeds",
+        "https://www.googleapis.com/auth/drive"
+    ]
 
-def get_client():
-    creds_dict = json.loads(st.secrets["gcp_service_account"])
-    creds = Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
+    creds = Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"],
+        scopes=scope
+    )
+
     client = gspread.authorize(creds)
-    return client
-
-def open_sheet(sheet_id):
-    client = get_client()
-    return client.open_by_key(sheet_id)
+    return client.open(sheet_name).sheet1
