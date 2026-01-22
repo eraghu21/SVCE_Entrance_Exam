@@ -13,11 +13,11 @@ def app():
     if st.button("Login"):
         spreadsheet = open_sheet(SHEET_ID)
         # DEBUG (KEEP FOR NOW)
-    st.write("Spreadsheet type:", type(spreadsheet))
+        st.write("Spreadsheet type:", type(spreadsheet))
 
-    users_ws = spreadsheet.worksheet("Users")
+        users_ws = spreadsheet.worksheet("Users")
 
-    st.write("Users sheet loaded successfully")
+        st.write("Users sheet loaded successfully")
         
 
         users = users_ws.get_all_records()
