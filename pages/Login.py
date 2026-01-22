@@ -11,8 +11,9 @@ def app():
     password = st.text_input("Password", type="password")
 
     if st.button("Login"):
-        sheet = open_sheet(SHEET_ID)
-        users_ws = sheet.worksheet("Users")
+        spreadsheet = open_sheet(SHEET_ID)
+        users_ws = spreadsheet.worksheet("Users")
+
         users = users_ws.get_all_records()
         user = next((u for u in users if u["Email"] == email), None)
 
