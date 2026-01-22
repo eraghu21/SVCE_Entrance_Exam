@@ -14,4 +14,4 @@ def open_sheet(sheet_id):
     )
 
     client = gspread.authorize(creds)
-    return client.open_by_key(sheet_id).sheet1
+    return client.open_by_key(sheet_id)   # 🔴 RETURN SPREADSHEET
